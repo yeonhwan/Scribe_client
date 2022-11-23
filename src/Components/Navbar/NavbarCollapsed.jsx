@@ -1,4 +1,4 @@
-import { useAppStateStore } from "../store/appStateStore"
+import { useAppStateStore } from "../../store/appStateStore"
 
 export default function NavbarCollapsed() {
 

@@ -1,4 +1,5 @@
-import { useAppStateStore } from "../store/appStateStore"
+import { useAppStateStore } from "../../store/appStateStore"
+import { Link } from "react-router-dom"
 
 export default function NavbarOpened() {
 
@@ -25,7 +26,7 @@ export default function NavbarOpened() {
             <div className="flex justify-center items-center w-8 h-8">
               <i className="fa-solid fa-clipboard-list text-md pt-px text-neutral-300"></i>
             </div>
-            <h2 className="ml-2 pt-px px-2">My Listboards</h2>
+            <Link to={`/listboards`} className="ml-2 pt-px px-2">My Listboards</Link>
           </div>
         </div>
         <div className="w-full mb-4 hover:bg-amber-700 hover:cursor-pointer">
@@ -33,7 +34,7 @@ export default function NavbarOpened() {
             <div className="flex justify-center items-center w-8 h-8">
               <i className="fa-solid fa-circle-plus text-sm text-neutral-300"></i>
             </div>
-            <h2 className="ml-2 pt-px px-2">Make New Todo</h2>
+            <Link to={`/newTodo`} className="ml-2 pt-px px-2">Make New Todo</Link>
           </div>
         </div>
         <div className="w-full mb-4 hover:bg-amber-700 hover:cursor-pointer">
@@ -41,7 +42,7 @@ export default function NavbarOpened() {
             <div className="flex justify-center items-center w-8 h-8">
               <i className="fa-solid fa-circle-exclamation text-sm text-neutral-300"></i>
             </div>
-            <h2 className="ml-2 pt-px px-2">Priorities</h2>
+            <Link to={`/priorities`} className="ml-2 pt-px px-2">Priorities</Link>
           </div>
         </div>
         <div className="w-full mb-4 hover:bg-amber-700 hover:cursor-pointer">
@@ -49,7 +50,7 @@ export default function NavbarOpened() {
             <div className="flex justify-center items-center w-8 h-8">
               <i className="fa-regular fa-calendar text-sm text-neutral-300"></i>
             </div>
-            <h2 className="ml-2 pt-px px-2">Date</h2>
+            <Link to={`/date`} className="ml-2 pt-px px-2">Date</Link>
           </div>
         </div>
       </div>

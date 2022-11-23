@@ -10,8 +10,6 @@ export const useAppStateStore = create((set) => ({
 
   navbarToggle : (isOpen) => set(
     produce((state) => {
-      console.log('mouse over')
       state.appState.navbarOpen = isOpen;
-      console.log('mouse over', state.appState.navbarOpen);
     }))
 }))
