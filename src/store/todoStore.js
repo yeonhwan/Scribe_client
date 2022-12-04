@@ -3,11 +3,8 @@ import produce from "immer";
 import {v4 as uuid} from 'uuid'
 
 export const useTodoStore = create((set) => ({
-  todos : [
-    {name: 'drink milk', id: uuid(), index: 0},
-    {name: 'go shopping', id: uuid(), index: 1},
-    {name: 'buy another milk', id: uuid(), index: 2},
-  ],
+  todos : [],
+  
   addTodo : (todoName) => set(
     produce((state) => {
       const newTodo = {name : todoName, id : uuid(), index : state.todos.length};

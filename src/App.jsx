@@ -1,18 +1,20 @@
-import Navbar from './Components/Navbar/Navbar'
-import TodoList from './Components/TodoList'
-import Header from './Components/Header'
-
+import {Routes, Route, Link} from 'react-router-dom';
+import Home from './Pages/Home';
+import Newtodo from './Pages/Newtodo';
+import MyListboards from './Pages/MyListboards';
+import UserListboard from './Pages/UserListboard';
 
 function App() {
 
-  return (
-    <div className="App bg-gradient-to-b from-zinc-700 to-zinc-800 flex-col text-start w-full h-full">
-      <Header/>
-      <div className='flex w-full h-full'>
-        <Navbar/>
-        <TodoList/>
-      </div>
-    </div>
+  return(
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/newTodo' element={<Newtodo/>}/>
+      <Route path='/listboards'>
+        <Route index element={<MyListboards/>}/>
+        <Route path=':id' element={<UserListboard/>}/> 
+      </Route>
+    </Routes>
   )
 }
 

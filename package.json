@@ -9,12 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.16.1",
+    "@tanstack/react-query-devtools": "^4.16.1",
+    "axios": "^1.2.0",
     "immer": "^9.0.16",
     "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
     "uuid": "^9.0.0",
-    "zustand": "^4.1.4"
+    "zustand": "^4.1.4",
+    "zustand-persist": "^0.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

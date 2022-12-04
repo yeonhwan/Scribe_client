@@ -8,7 +8,7 @@ export default function NavbarOpened() {
 
 
   return (
-    <div className=" bg-neutral-600/30 left h-full w-72 navbar"
+    <div className=" bg-neutral-600/30 left h-full w-[350px] navbar"
          onMouseLeave={() => {navbarToggle(false)}}>
       <div className="mb-8 pt-2 pb-1 px-2 border-b">
         <h1 className="text-md ml-2 mb-2">Welcome, User!</h1>

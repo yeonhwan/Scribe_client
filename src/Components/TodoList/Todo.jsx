@@ -1,5 +1,5 @@
 import { useState } from "react"
-import '../Stylesheets/Todo.css'
+import '../../Stylesheets/scribeAnimation.css'
 
 export default function Todo
   ({index, 

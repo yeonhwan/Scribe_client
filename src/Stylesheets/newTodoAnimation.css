@@ -1,0 +1,68 @@
+
+.newtodo-form-open {
+  opacity: 1;
+  transition: all 200ms ease-in-out;
+}
+
+.newtodo-form {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100px);
+  transition: all 200ms ease-in-out;
+}
+
+.date-container {
+  height: 40px;
+  transition: all 200ms ease-in-out;
+}
+
+.date-container.open {
+  height: 80px;
+  transition: all 200ms ease-in-out;
+}
+
+.date-input {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 200ms ease-in-out;
+}
+
+.date-input.open {
+  opacity: 1;
+  pointer-events: all;
+  transition: all 200ms ease-in-out;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+  transition: all 200ms ease-in-out;
+}
+
+.arrow {
+  transition: all 200ms ease-in-out;
+}
+
+@keyframes appear {
+  0% {
+    top : 30rem;
+    opacity : 0%;
+  }
+
+  100% {
+    top : 12rem;
+    opacity: 100%;
+  }
+}
+
+@keyframes disappear {
+  100% {
+    top : 30rem;
+    opacity : 0%;
+  }
+
+  0% {
+    top : 12rem;
+    opacity: 100%;
+    visibility: hidden;
+  }
+}

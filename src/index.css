@@ -12,7 +12,9 @@
 }
 
 body {
+  height: 100vh;
   margin: 0;
+  padding: 0;
 }
 
 
@@ -31,6 +33,9 @@ button {
 
 #root {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+  display: block;
 }
 
 

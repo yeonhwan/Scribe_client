@@ -1,5 +1,5 @@
 import Todo from "./Todo"
-import { useTodoStore } from "../store/todoStore"
+import { useTodoStore } from "../../store/todoStore"
 import { useState, useRef } from "react"
 
 export default function TodoList() {
@@ -51,10 +51,10 @@ export default function TodoList() {
   }
 
   return (
-    <div className="flex bg-neutral-900/60 w-full h-full min-h-max">
+    <div className="flex bg-amber-900/10 w-full h-full">
       <div className="ml-28 mr-0 pt-8 pb-10 w-2/3">
         <h1 className="text-3xl mb-2.5 border-b border-neutral-700">Untitled List</h1>
-        <div className="flex p-4 bg-neutral-900">
+        <div className="flex p-4 bg-neutral-800">
           <ul className="w-full">
             {todos.map((todo) => {
               return (
