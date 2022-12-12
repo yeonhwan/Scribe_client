@@ -5,16 +5,21 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { useGoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
+import { useAppStateStore } from '../store/appStateStore';
 
 export default function Home() {
   const navigate = useNavigate();
+  const setUserInfo = useAppStateStore((state) => state.setUserInfo);
 
   const login = useGoogleLogin({
     onSuccess: async tokenResponse => {
       console.log(tokenResponse);
       const {access_token} = tokenResponse;
       const userData = await axios.post('http://localhost:5862/login', {access_token});
-      if(userData) {navigate('./login')};
+      if(userData) {
+        setUserInfo(userData.data);
+        navigate('./login')
+      };
     }
   })
 

@@ -7,6 +7,7 @@ import '../../Stylesheets/fonts.css'
 import AddNewTodo from "./AddNewTodo"
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 import Taskboard from "./Taskboard"
+import { useAppStateStore } from "../../store/appStateStore"
 
 export default function UserTodoList() {
   const [listData, setlistData] = useState(null);
@@ -15,11 +16,11 @@ export default function UserTodoList() {
   const [isTaskboardMode, setIsTaskboardMode] = useState(false);
   const listId = useParams().id
   const fetchList = () => {
-    return axios.post(`http://localhost:5862/listboards/${listId}`, {userId : import.meta.env.VITE_USER_ID});
+    return axios.post(`http://localhost:5862/listboards/${listId}`, {userId : useAppStateStore.getState().userIdToken});
   }
 
   const updateListData = () => {
-    return axios.post(`http://localhost:5862/listboards/${listId}`, {userId : import.meta.env.VITE_USER_ID});
+    return axios.post(`http://localhost:5862/listboards/${listId}`, {userId : useAppStateStore.getState().userIdToken});
 
   }
 

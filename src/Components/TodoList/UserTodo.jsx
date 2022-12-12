@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import '../../Stylesheets/editTodoDetailAnimation.css'
+import { useAppStateStore } from "../../store/appStateStore"
 
 export default function UserTodo({todo, refetchData, innerRef, ...rest}) {
 
@@ -52,7 +53,7 @@ export default function UserTodo({todo, refetchData, innerRef, ...rest}) {
   }
 
   const updateTodoData = () => {
-    return axios.patch(`http://localhost:5862/listboards/${listId}`, {userId : "6386ee119d102ce4d8b627d7", todoId : todo._id, todoData})
+    return axios.patch(`http://localhost:5862/listboards/${listId}`, {userId : useAppStateStore.getState().userIdToken, todoId : todo._id, todoData})
   }
 
   const deleteTodoData = () => {

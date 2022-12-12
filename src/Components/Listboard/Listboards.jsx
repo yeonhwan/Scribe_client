@@ -1,18 +1,25 @@
 import Listboard from "./Listboard"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useQueryClient, useQuery} from "@tanstack/react-query";
 import { Link } from 'react-router-dom'
 import AddNewListboard from './AddNewListboard'
 import '../../Stylesheets/fonts.css'
+import { useAppStateStore } from "../../store/appStateStore";
 
-const fetchListboards = () => {
-  return axios.post('http://localhost:5862/userinfo', {userId : import.meta.env.VITE_USER_ID});
-}
 
 export default function Listboards() {
   const [isAddMode, setIsAddMode] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
+
+  useEffect(() => {
+    console.log('userIdtoken in listboards', useAppStateStore.getState());
+  }, [])
+
+  const fetchListboards = () => {
+    return axios.post('http://localhost:5862/userinfo', {userId : useAppStateStore.getState().userIdToken});
+  }
+
   const {isLoading, data, refetch} = useQuery({queryKey : ['fetchListboards'], queryFn : fetchListboards, onSuccess : (data)=>{console.log(data)}});
   const listboards = data?.data.listboards
 
