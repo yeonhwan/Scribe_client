@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useAppStateStore } from "../../store/appStateStore";
 
 export default function AddNewListboard({setIsAddMode, refetch}) {
 
@@ -10,7 +11,7 @@ export default function AddNewListboard({setIsAddMode, refetch}) {
 
   const addNewListboardData = () => {
     return axios.post('http://localhost:5862/listboards/create/newlistboard', {
-      userId : import.meta.env.VITE_USER_ID,
+      userId : useAppStateStore.getState().userIdToken,
       listboardData : {
         listname : nameInput,
         description : descInput
