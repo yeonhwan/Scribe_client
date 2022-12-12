@@ -9,12 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.5.1",
     "@tanstack/react-query": "^4.16.1",
     "@tanstack/react-query-devtools": "^4.16.1",
     "axios": "^1.2.0",
+    "chart.js": "^4.0.1",
     "immer": "^9.0.16",
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
+    "react-chartjs-2": "^5.0.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
     "uuid": "^9.0.0",

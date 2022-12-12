@@ -1,13 +1,11 @@
-import Navbar from '../Components/Navbar/Navbar'
-import Header from '../Components/Header'
+import NavbarOpened from '../Components/Navbar/NavbarOpened'
 import Listboards from '../Components/Listboard/Listboards'
 
 export default function MyListboards() {
   return (
     <div className="App bg-gradient-to-b from-zinc-700 to-zinc-800 flex-col text-start w-full h-full">
-      <Header/>
-      <div className="flex w-full h-[92%]">
-      <Navbar/>
+      <div className="flex w-full h-screen">
+      <NavbarOpened/>
       <Listboards/>
       </div>
     </div>

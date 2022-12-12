@@ -8,47 +8,55 @@ export default function NavbarOpened() {
 
 
   return (
-    <div className=" bg-neutral-600/30 left h-full w-[350px] navbar"
-         onMouseLeave={() => {navbarToggle(false)}}>
-      <div className="mb-8 pt-2 pb-1 px-2 border-b">
-        <h1 className="text-md ml-2 mb-2">Welcome, User!</h1>
+    <div className=" bg-secondary left h-full w-[270px] absolute z-20">
+      <Link to={'/'}>
+        <div className="flex items-center ml-4 mt-4">
+        <svg className="mt-3.5" width="30" height="30" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle className='stroke-[rgb(74,98,205)]' cx="27" cy="27" r="24.5" stroke="#3992A6" strokeWidth="5"/>
+          <path className='stroke-[rgb(74,98,205)]' d="M43 11L4.5 24.5L49.5 29.5L9.5 42.5" stroke="#3992A6" strokeWidth="3"/>
+        </svg>
+        <h1 className="ml-2 pt-4 text-xl font-semibold">SCRIBE</h1>
+        </div>
+      </Link>
+      <div className="mb-8 pt-4 pb-0.5 px-2 border-b border-secondary-lighter">
+        <h1 className="text-sm ml-2 mb-2 text-[rgb(107,114,142)]">Welcome, User !</h1>
         <div className="flex">
-          <img className="ml-2 w-10 h-10 rounded-full" src="https://randomuser.me/api/portraits/women/12.jpg"></img>
+          <img className="ml-2 w-8 h-8 rounded-full" src="https://randomuser.me/api/portraits/women/12.jpg"></img>
           <div className="flex items-center mb-2">
-            <p className="text-xl ml-2">username</p>
-            <i className="fa-solid fa-user ml-2 pb-px text-neutral-800"></i>
+            <p className="text-xl ml-2 mb-2">username</p>
+            <i className="fa-solid fa-user ml-4 pb-2 text-secondary-lighter"></i>
           </div>
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="w-full mb-4 hover:bg-amber-700 hover:cursor-pointer">
+        <div className="group w-full mb-4 hover:bg-navbar-hover hover:ml-2 hover:rounded-l-xl hover:cursor-pointer ease-in-out duration-75">
           <div className="flex ml-6 items-center">
             <div className="flex justify-center items-center w-8 h-8">
-              <i className="fa-solid fa-clipboard-list text-md pt-px text-neutral-300"></i>
+              <i className="fa-solid fa-clipboard-list text-md pt-px text-neutral-300 group-hover:text-navbar-icon"></i>
             </div>
-            <Link to={`/listboards`} className="ml-2 pt-px px-2">My Listboards</Link>
+            <Link className="ml-4" to={`/listboards`}>My Listboards</Link>
           </div>
         </div>
-        <div className="w-full mb-4 hover:bg-amber-700 hover:cursor-pointer">
+        <div className="group w-full mb-4 hover:bg-navbar-hover hover:ml-2 hover:rounded-l-xl hover:cursor-pointer ease-in-out duration-75">
           <div className="flex items-center ml-6 w-full">
             <div className="flex justify-center items-center w-8 h-8">
-              <i className="fa-solid fa-circle-plus text-sm text-neutral-300"></i>
+              <i className="fa-solid fa-circle-plus text-sm text-neutral-300 group-hover:text-navbar-icon"></i>
             </div>
-            <Link to={`/newTodo`} className="ml-2 pt-px px-2">Make New Todo</Link>
+            <Link to={`/newTodo`} className="ml-2 pt-px px-2">Make Simple Todo</Link>
           </div>
         </div>
-        <div className="w-full mb-4 hover:bg-amber-700 hover:cursor-pointer">
+        <div className="group w-full mb-4 hover:bg-navbar-hover hover:ml-2 hover:rounded-l-xl hover:cursor-pointer ease-in-out duration-75">
           <div className="flex items-center ml-6 w-full">
             <div className="flex justify-center items-center w-8 h-8">
-              <i className="fa-solid fa-circle-exclamation text-sm text-neutral-300"></i>
+              <i className="fa-solid fa-circle-exclamation text-sm text-neutral-300 group-hover:text-navbar-icon"></i>
             </div>
             <Link to={`/priorities`} className="ml-2 pt-px px-2">Priorities</Link>
           </div>
         </div>
-        <div className="w-full mb-4 hover:bg-amber-700 hover:cursor-pointer">
+        <div className="group w-full mb-4 hover:bg-navbar-hover hover:ml-2 hover:rounded-l-xl hover:cursor-pointer ease-in-out duration-75">
           <div className="flex items-center ml-6 w-full">
             <div className="flex justify-center items-center w-8 h-8">
-              <i className="fa-regular fa-calendar text-sm text-neutral-300"></i>
+              <i className="fa-regular fa-calendar text-sm text-neutral-300 group-hover:text-navbar-icon"></i>
             </div>
             <Link to={`/date`} className="ml-2 pt-px px-2">Date</Link>
           </div>

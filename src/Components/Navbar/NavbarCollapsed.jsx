@@ -6,9 +6,9 @@ const navbarToggle = useAppStateStore((state) => state.navbarToggle);
 
 
   return (
-    <div className=" bg-neutral-600/30 left h-full w-20 navbar"
+    <div className=" bg-neutral-800/30 left h-full w-20 navbar"
         onMouseEnter={() => {navbarToggle(true)}}>
-      <div className="mb-8 pt-2 pb-4 px-2 border-b">
+      <div className="mb-8 pt-2 pb-4 px-2 border-b border-neutral-600">
         <div className="flex flex-col justify-center items-center">
           <img className="w-8 h-8 rounded-full" src="https://randomuser.me/api/portraits/women/12.jpg"></img>
           <p className="mt-2 text-sm">username</p>

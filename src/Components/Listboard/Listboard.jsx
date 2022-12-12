@@ -21,13 +21,13 @@ export default function Listboard({listboard, refetch}) {
   }
 
   return (
-      <div className='mt-8 w-80 flex flex-col items-start rounded-lg bg-neutral-700/30 drop-shadow-lg ml-10'>
-        <div className='border-b border-neutral-600 pb-2 w-full mb-4 pl-2 bg-neutral-900/70 rounded-t-lg'>
+      <div className='group w-full flex flex-col items-start rounded-xl bg-secondary-lighter drop-shadow-lg hover:border hover:border-primary-darker hover:bg-primary-lighter'>
+        <div className='border-b border-secondary-lighter pb-2 w-full mb-4 pl-2 bg-secondary group-hover:bg-primary rounded-t-lg group-hover:border-primary'>
           <div className='flex justify-between'>
           <h2 className='text-xl font-semibold pt-2'>{listboard.listname}</h2>
-          <i onClick={deleteHandler} className='w-5 h-5 fa-solid fa-xmark pl-[5px] pt-[1px] mr-2.5 mt-[15px] rounded-full bg-amber-600 hover:bg-red-500'></i>
+          <i onClick={deleteHandler} className='w-5 h-5 fa-solid fa-trash text-xs pl-[4.5px] pt-[1.5px] mr-2.5 mt-[15px] rounded-full bg-[rgb(84,88,121)] hover:bg-red-500'></i>
           </div>
-          <p className='text-xs text-neutral-500'>{listboard.description}</p>
+          <p className='text-xs text-neutral-500 group-hover:text-primary-darker'>{listboard.description}</p>
         </div>
         {
           listboard.todos.length > 3 ? 
@@ -39,7 +39,7 @@ export default function Listboard({listboard, refetch}) {
               }
               return null
             })}
-            <p className='ml-4 mt-2 text-sm text-neutral-500'>... and {listboard.todos.length - 3} more</p>
+            <p className='ml-4 text-xs text-secondary-darker pl-1 pt-2 absolute'>... and {listboard.todos.length - 3} more</p>
           </ul> 
           : <ul>
             {
@@ -49,7 +49,7 @@ export default function Listboard({listboard, refetch}) {
             }
           </ul>
         }
-        <p className='mx-auto mt-8 p-1 px-8 mb-4 rounded-xl bg-neutral-900/40 hover:translate-y-[-3px] hover:bg-emerald-700 ease-in-out duration-100 text-sm'>Taskboard</p>
+        <p className='mx-auto mt-8 p-1 px-8 mb-4 rounded-xl bg-secondary hover:translate-y-[-3px] hover:drop-shadow-lg ease-in-out duration-100 text-sm group-hover:bg-primary-darker'>Taskboard</p>
       </div>
   )
 }
