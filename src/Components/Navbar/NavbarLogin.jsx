@@ -50,14 +50,6 @@ export default function NavbarOpened() {
             <Link className="ml-4" to={`/listboards`}>My Listboards</Link>
           </div>
         </div>
-        <div className="group w-full mb-4 hover:bg-navbar-hover hover:ml-2 hover:rounded-l-xl hover:cursor-pointer ease-in-out duration-75">
-          <div className="flex items-center ml-6 w-full">
-            <div className="flex justify-center items-center w-8 h-8">
-              <i className="fa-solid fa-circle-plus text-sm text-neutral-300 group-hover:text-navbar-icon"></i>
-            </div>
-            <Link to={`/newTodo`} className="ml-2 pt-px px-2">Make Simple Todo</Link>
-          </div>
-        </div>
         <div className="group w-full mb-4 hover:bg-red-500 hover:ml-2 hover:rounded-l-xl hover:cursor-pointer ease-in-out duration-75">
           <div className="flex items-center ml-6 w-full">
             <div className="flex justify-center items-center w-8 h-8">

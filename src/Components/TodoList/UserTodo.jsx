@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 import '../../Stylesheets/editTodoDetailAnimation.css'
 import { useAppStateStore } from "../../store/appStateStore"
 
-export default function UserTodo({todo, refetchData, innerRef, ...rest}) {
+export default function UserTodo({todo, refetchData, innerRef=undefined, setQueryOn, ...rest}) {
 
   const processDateToString = (data) => {
     if(data) {
@@ -71,7 +71,8 @@ export default function UserTodo({todo, refetchData, innerRef, ...rest}) {
 
   const deleteHandler = () => {
     deleteTodo();
-    refetchData()
+    setQueryOn(true);
+    refetchData();
   }
 
   const completeModeHandler = (e) => {
@@ -82,6 +83,7 @@ export default function UserTodo({todo, refetchData, innerRef, ...rest}) {
   const updateHandler = (e) => {
     e.stopPropagation();
     updateTodo();
+    setQueryOn(true);
   }
 
   useEffect(() => {
@@ -90,7 +92,7 @@ export default function UserTodo({todo, refetchData, innerRef, ...rest}) {
 
   if(isCompleted) {
     return (
-      <li {...rest} ref={innerRef} onClick={completeModeHandler}>
+      <li {...rest || undefined} ref={innerRef || undefined} onClick={completeModeHandler}>
       <div className="flex h-[55px] justify-between items-center p-2 border rounded-xl todolist-container completed border-neutral-800 mb-2 hover:cursor-grab">
         <div className="flex flex-col pl-3">
           <p className="todo completed max-w-max"> {todo.todo}</p>
@@ -117,7 +119,7 @@ export default function UserTodo({todo, refetchData, innerRef, ...rest}) {
     )
   } 
     return (
-      <li {...rest} ref={innerRef} onClick={!isEditMode && completeModeHandler}>
+      <li {...rest || undefined} ref={innerRef || undefined} onClick={!isEditMode && completeModeHandler}>
         <div className={`group h-[55px] todo-container flex justify-between items-center border-[0.5px] p-2 rounded-xl border-neutral-800 mb-2 ${ isEditMode? "bg-editmode border-amber-500" : "bg-[#474759]" } ${isEditMode ? '' : 'hover:bg-primary hover:border-primary'} drop-shadow-md hover:cursor-grab hover:translate-y-[-3px] ease-in-out duration-75`}>
           <div className="flex flex-col justify-center pl-3 left-0">
               {

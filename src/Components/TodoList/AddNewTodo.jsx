@@ -59,11 +59,12 @@ export default function AddNewTodo({setIsAddMode, isAddMode, refetchData}) {
   const addNewTodoHandler = () => {
     if(todoInput) {
       addNewTodo();
+      refetchData();
       setIsAddMode(false);
       setIsDateMode(false);
       setTodoInput('');
       setDateInput(null);
-      setTodoPriority(null);
+      setTodoPriority(0);
     } else {
       window.alert('You cannot create empty todo. please fill in the input');
     }
