@@ -18,7 +18,7 @@ export default function Taskboard({isTaskboardMode, todos}) {
     return important
   }, 0)
 
-  const percentage = Math.ceil(completedTasks / todos?.length * 100)
+  const percentage = completedTasks ? Math.ceil(completedTasks / todos?.length * 100) : 0
 
   const normal = todos.length - (urgent + important)
 

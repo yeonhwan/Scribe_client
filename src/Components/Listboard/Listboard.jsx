@@ -1,15 +1,15 @@
 import '../../Stylesheets/fonts.css'
-import { useUserDatasStore } from '../../store/listsStore'
 import { useMutation } from '@tanstack/react-query';
+import { useAppStateStore } from '../../store/appStateStore';
 import axios from 'axios';
-import Listboards from './Listboards';
 
 export default function Listboard({listboard, refetch}) {
 
   let listCount = 0;
+  const userIdToken = useAppStateStore((state) => state.userIdToken);
 
   const deleteListboardData = () => {
-    return axios.delete('http://localhost:5862/listboards', {data : {listboardId : listboard._id}});
+    return axios.delete('http://localhost:5862/listboards', {data : {listboardId : listboard._id, userIdToken}});
   }
 
   const {mutate : deleteListboard} = useMutation({mutationKey : ['deleteListboard'], mutationFn : deleteListboardData, onSuccess : refetch});

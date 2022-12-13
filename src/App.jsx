@@ -1,6 +1,6 @@
 import {Routes, Route, Link} from 'react-router-dom';
 import Home from './Pages/Home';
-import Newtodo from './Pages/Newtodo';
+import SimpleTodo from './Pages/SimpleTodo';
 import MyListboards from './Pages/MyListboards';
 import UserListboard from './Pages/UserListboard';
 import Login from './Pages/Login';
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/newTodo' element={<Newtodo/>}/>
+        <Route path='/simple' element={<SimpleTodo/>}/>
         <Route path='/listboards'>
           <Route index element={<MyListboards/>}/>
           <Route path=':id' element={<UserListboard/>}/> 

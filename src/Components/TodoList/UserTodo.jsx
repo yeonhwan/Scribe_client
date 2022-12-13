@@ -28,13 +28,13 @@ export default function UserTodo({todo, refetchData, innerRef, ...rest}) {
 
   }
 
-
   const dateOption = {
     year : 'numeric',
     month : 'numeric',
     day : 'numeric',
     time : 'none'
   }
+
   const listId = useParams().id;
   const priorityList = ['urgent', 'important'];
   const priorityClassNameList = ['fa-solid fa-fire text-red-400', "fa-solid fa-bolt-lightning text-yellow-500"]
@@ -57,7 +57,7 @@ export default function UserTodo({todo, refetchData, innerRef, ...rest}) {
   }
 
   const deleteTodoData = () => {
-    return axios.delete(`http://localhost:5862/listboards/${listId}`, {data: {todoId : todo._id}});
+    return axios.delete(`http://localhost:5862/listboards/${listId}`, {data: {todoId : todo._id, listId}});
   }
 
   const {mutate : updateTodo} = useMutation({mutationKey : ['updateTodo'], mutationFn : updateTodoData, onSuccess: ()=> {

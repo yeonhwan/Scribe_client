@@ -10,7 +10,7 @@ export default function Chart({completedTasks, total}) {
   labels : ['Active', 'Completed'],
   datasets : [{
     label : 'Achivements',
-    data : [completedTasks, total - completedTasks],
+    data : [completedTasks, total? total - completedTasks : 1],
     backgroundColor : ['#7372F1', '#4B4B55'],
     hoverOffset : 4,
     borderWidth : 0,

@@ -10,16 +10,28 @@ import { useAppStateStore } from '../store/appStateStore';
 export default function Home() {
   const navigate = useNavigate();
   const setUserInfo = useAppStateStore((state) => state.setUserInfo);
+  const removeUserInfo = useAppStateStore((state) => state.removeUserInfo);
+  const setUserLogin = useAppStateStore((state) => state.setUserLogin);
+  const setUserIdToken = useAppStateStore((state) => state.setUserIdToken);
+  const setLoginDetail = useAppStateStore((state) => state.setLoginDetail);
 
   const login = useGoogleLogin({
     onSuccess: async tokenResponse => {
       console.log(tokenResponse);
       const {access_token} = tokenResponse;
-      const userData = await axios.post('http://localhost:5862/login', {access_token});
-      if(userData) {
+      const userData = await axios.post('http://localhost:5862/login', {access_token}); 
+      console.log(userData);
+      if(userData.data.userIdToken) {
+        console.log('user exists');
+        const {username, userAvatarUrl, userIdToken} = userData.data;
+        setUserIdToken(userIdToken);
+        setLoginDetail({username, userAvatarUrl});
+        setUserLogin();
+        navigate('./listboards');
+      } else {
         setUserInfo(userData.data);
         navigate('./login')
-      };
+      }
     }
   })
 
@@ -59,7 +71,7 @@ export default function Home() {
                   <span className='text-sm ml-4 py-4 mr-7'>Sigin in with Google</span>
               </div>
               <div className='flex bg-[rgb(80,87,122)] px-10 py-3 rounded-full mt-4 justify-center hover:cursor-pointer hover:bg-green-600 drop-shadow-lg'>
-              <Link to={'./listboards'} className='bg-transparent text-md'>use it without sign in</Link>
+              <Link to={'./simple'} className='bg-transparent text-md'>use it without sign in</Link>
               </div>
           </div>
         </div>
